@@ -2,7 +2,7 @@
 
 // Selecting Elements
 const categoriesList = document.querySelector(".categories__list");
-const categoryFound = document.querySelector(".category-found");
+const categoryFound = document.querySelector(".category__found");
 
 const loadCategories = async () => {
   const url = "https://openapi.programming-hero.com/api/news/categories";
@@ -11,7 +11,7 @@ const loadCategories = async () => {
     const data = await res.json();
     displayCategories(data.data.news_category);
   } catch (err) {
-    alert("Sorry to fetch :( Please try again later!");
+    alert(`Sorry to fetch :( ${err.name} Please try again later!`);
   }
 };
 
@@ -44,7 +44,7 @@ const categoryDetails = async (id, categoryName) => {
     categoryFound.innerHTML = "";
     categoryFound.insertAdjacentHTML("beforeend", html);
   } catch (err) {
-    alert("Sorry to fetch :( Please try again later!");
+    alert(`Sorry to fetch :( ${err.name} Please try again later!`);
   }
 };
 

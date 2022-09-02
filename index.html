@@ -64,10 +64,29 @@
       </div>
 
       <!-- Category Found -->
-      <div class="category-found">
-        <h4 class="heading-4 category-found__text">
+      <div class="category__found">
+        <h4 class="heading-4 category__found__text">
           Click to see about category info (:
         </h4>
+      </div>
+      <!-- Category Heading -->
+      <div class="category__heading">
+        <div class="category__sort">
+          <label for="category__select" class="heading-4 category__sort-by"
+            >Sort by:</label
+          >
+          <select id="category__select" class="category__select">
+            <optgroup label="">
+              <option value="view">View</option>
+              <option value="date">Date</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="category-btns">
+          <a href="#" class="category-btn btn btn--fill">Todays Pick</a>
+          <a href="#" class="category-btn btn btn--outline">Trending</a>
+        </div>
       </div>
     </main>
 
