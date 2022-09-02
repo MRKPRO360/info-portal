@@ -15,9 +15,9 @@
   --clr-black: #000;
   --clr-dark-black: #121221;
 
+  --clr-grey-0: #515151;
   --clr-grey-1: #858585;
   --clr-grey-2: #949494;
-
   --clr-grey-3: #a3a3a3;
   --clr-grey-4: #cdcdcd;
   --clr-grey-5: #f6f6f6;
@@ -179,9 +179,10 @@ ul {
 .categories__link {
   padding: 0.5rem 1rem;
   color: var(--clr-grey-1);
+  transition: 0.4s ease-in-out;
 }
 
-.categories__link--current {
+.categories__link:focus {
   background-color: var(--clr-thin);
   color: var(--clr-primary);
 }
@@ -213,6 +214,111 @@ ul {
   outline: 0;
 }
 
-.category-btn:nth-child(2) {
+.category__btn:nth-child(2) {
   margin-left: 1rem;
+}
+
+/* category__cards-container */
+.category__cards-container {
+  display: grid;
+  grid-template-columns: 24rem 1fr;
+  gap: 4rem;
+  background-color: var(--clr-white);
+  padding: 2rem;
+  align-items: center;
+}
+
+.category__img {
+  border-radius: 1rem;
+}
+.category__card-title {
+  font-weight: 700;
+  color: var(--clr-dark-black);
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.category__text {
+  font-size: 1.6rem;
+  color: var(--clr-grey-2);
+}
+
+.category__text:first-of-type {
+  margin-bottom: 2.5rem;
+}
+
+.category__text:first-of-type {
+  margin-bottom: 1.7rem;
+}
+
+.category__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category__publisher {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.category__pubisher-img-container {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.category__publisher-name {
+  font-size: 1.6rem;
+  color: #2b2c34;
+}
+
+.category__publish-date {
+  color: #718797;
+  font-size: 1.4rem;
+}
+
+.category__view-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.category__view-text {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--clr-grey-0);
+}
+
+.category__icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.category__next:link,
+.category__next:visited {
+  color: var(--clr-primary);
+  font-size: 4.5rem;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+/* Media Queries */
+/* 675px and below */
+@media only screen and (max-width: 42.1875em) {
+  html {
+    font-size: 50%;
+    /* 1rem = 8px */
+  }
+  .category__heading {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: start;
+  }
 }

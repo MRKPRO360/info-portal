@@ -3,6 +3,7 @@
 // Selecting Elements
 const categoriesList = document.querySelector(".categories__list");
 const categoryFound = document.querySelector(".category__found");
+const categoriesLinks = document.querySelectorAll(".categories__link");
 
 const loadCategories = async () => {
   const url = "https://openapi.programming-hero.com/api/news/categories";
@@ -26,8 +27,13 @@ const displayCategories = (categories) => {
   });
 };
 
-const categoryDetails = async (id, categoryName) => {
+const categoryDetails = async function (id, categoryName) {
+  categoriesLinks.forEach((link) =>
+    link.classList.remove("categories__link--current")
+  );
+  // this.classList.add("categories__link--current");
   console.log(id, categoryName);
+
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
   try {
     const res = await fetch(url);
