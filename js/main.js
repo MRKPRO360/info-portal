@@ -4,6 +4,10 @@
 const categoriesList = document.querySelector(".categories__list");
 const categoryFound = document.querySelector(".category__found");
 const categoriesLinks = document.querySelectorAll(".categories__link");
+const spinner = document.querySelector(".spinner");
+const categoryCardsContainer = document.querySelector(
+  ".category__cards-container"
+);
 
 const loadCategories = async () => {
   const url = "https://openapi.programming-hero.com/api/news/categories";
@@ -28,30 +32,139 @@ const displayCategories = (categories) => {
 };
 
 const categoryDetails = async function (id, categoryName) {
+  spinner.classList.remove("d-none");
   categoriesLinks.forEach((link) =>
     link.classList.remove("categories__link--current")
   );
-  // this.classList.add("categories__link--current");
-  console.log(id, categoryName);
 
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
   try {
     const res = await fetch(url);
     const data = await res.json();
 
-    console.log(data.data);
-
     const html = `
     <h4 class="heading-4 category-found__text">
-          ${data.data.length} items found of ${categoryName}
+    ${data.data.length} items found of ${categoryName}
         </h4>
     `;
     // clear the previous markup
     categoryFound.innerHTML = "";
     categoryFound.insertAdjacentHTML("beforeend", html);
+
+    displayCard(data.data);
+
+    if (data.data.length === 0) {
+      throw new Error("No data available!");
+    }
   } catch (err) {
-    alert(`Sorry to fetch :( ${err.name} Please try again later!`);
+    console.log(err);
+    alert(`Sorry to fetch :( ${err.message} Please try again later!`);
   }
+};
+
+const displayCard = (cards) => {
+  console.log(cards);
+  // clear the spinner
+  categoryCardsContainer.innerHTML = "";
+
+  cards.forEach((card) => {
+    const html = `
+    <div class="category__cards bg-white">
+    <div class="category__img-container">
+          <img
+            src="${card.image_url}"
+            alt=""
+            class="category__img"
+          />
+        </div>
+
+        <div class="category__info">
+          <h2 class="category__card-title heading-2">
+            ${card.title}
+          </h2>
+
+          <p class="category__text">
+           ${card.details.slice(0, 279)}
+          </p>
+
+          <p class="category__text ellipsis">
+          ${card.details.slice(280)}
+          </p>
+
+          <div class="category__summary">
+            <!-- 1st col -->
+            <div class="category__publisher">
+              <div class="category__pubisher-img-container">
+                <img
+                  src="${card.author.img}"
+                  alt=""
+                  class="category__pubisher-img"
+                />
+              </div>
+
+              <div class="category__text-container">
+                <h5 class="heading-5 category__publisher-name">${
+                  card.author.name ? card.author.name : "No author found"
+                }</h5>
+                <span class="category__publish-date">${
+                  card.author.published_date
+                }</span>
+              </div>
+            </div>
+
+            <!-- 2nd col -->
+            <div class="category__view-container">
+              <div class="category__view-img-container">
+                <img
+                  src="./img/carbon_view.svg"
+                  alt=""
+                  class="category__view-img"
+                />
+              </div>
+              <p class="category__view-text">${
+                card.total_view ? card.total_view : "No data found"
+              }</p>
+            </div>
+
+            <!-- 3rd col -->
+            <div class="category__icons">
+              <img
+                src="./img/bxs_star-half.svg"
+                alt=""
+                class="category__icon"
+              />
+              <img
+                src="./img/ant-design_star-outlined.svg"
+                alt=""
+                class="category__icon"
+              />
+              <img
+                src="./img/ant-design_star-outlined.svg"
+                alt=""
+                class="category__icon"
+              />
+              <img
+                src="./img/ant-design_star-outlined.svg"
+                alt=""
+                class="category__icon"
+              />
+              <img
+                src="./img/ant-design_star-outlined.svg"
+                alt=""
+                class="category__icon"
+              />
+            </div>
+
+            <!-- 4th col -->
+
+            <a href="#" class="category__next">&rarr;</a>
+          </div>
+        </div>
+        </div>
+    `;
+
+    categoryCardsContainer.insertAdjacentHTML("beforeend", html);
+  });
 };
 
 loadCategories();
