@@ -82,7 +82,11 @@ const displayCards = (cards) => {
   const spinner = document.querySelector(".spinner");
   spinner.classList.add("d-none");
 
-  cards.forEach((card) => {
+  const sortedResponse = cards.sort((a, b) => +b.total_view - +a.total_view);
+
+  console.log(sortedResponse);
+
+  sortedResponse.forEach((card) => {
     const html = `
     <div class="category__cards bg-white">
     <div class="category__img-container">
@@ -123,6 +127,8 @@ const displayCards = (cards) => {
                 }</h5>
                 <span class="category__publish-date">${
                   card.author.published_date
+                    ? card.author.published_date
+                    : "No date found"
                 }</span>
               </div>
             </div>
@@ -238,6 +244,8 @@ const displayCardDetails = async (id) => {
                 }</h5>
                 <span class="category__publish-date">${
                   modalInfo.author.published_date
+                    ? modalInfo.author.published_date
+                    : "No date found"
                 }</span>
 
               </div>

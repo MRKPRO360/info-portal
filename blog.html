@@ -27,6 +27,54 @@
           </div>
         </div>
       </header>
+      <main class="main">
+        <h1 class="heading-1 blog-question-topic">ES6 Common Questions</h1>
+        <div class="blog-cards__container">
+          <div class="card">
+            <h2 class="heading-2 card__heading">
+              What's the difference between var, let, and const
+            </h2>
+            <p class="card__text">Var is global scoped where let and const are block scoped. Var and let can be mutated but const can't be mutated or redeclared. Var variables are hoisted to the top of their scope and intialized with a value of undefined where let and const variable are not initialized and we will get an Reference Error.</p>
+          </div>
+          <div class="card">
+            <h2 class="heading-2 card__heading">
+              What's the difference between arrow function and regular function
+            </h2>
+            <p class="card__text">
+             Arrow function doesn't have their own this keyword that's why arrow function can't be used as constructor. In an object method traditional/regular functions this keyword refers the object whom its calling the method where arrow function shows a global window object. Arrow functions are more likely to use shorter syntax. They are the most perfect for using method like map, filter, reduce, find, forEach, findIndex. Arrow function shine best with anything that requires this to be bound to the context and not the function itself. 
+            </p>
+          </div>
+
+          <div class="card">
+            <h2 class="heading-2 card__heading">
+              What's the difference between map, forEach, filter, find
+            </h2>
+            <p class="card__text">
+              <span class="card__text-highlight">Map</span> Map returns a new array containing the result of applying an opreation on all original array elements.
+            </p>
+            <p class="card__text">
+               <span class="card__text-highlight">forEach</span> Iterates over an array. Allows us to change elements of original array and returns undefied. Doesn't mutate the array
+            </p>
+              </p>
+            <p class="card__text">
+               <span class="card__text-highlight">Filter</span> Filter returns a new array containing the array elements that passed a specified test condition.
+            </p>
+
+              </p>
+            <p class="card__text">
+               <span class="card__text-highlight">Find</span> Find returns an element that is matched by the condition.
+            </p>
+          </div>
+          <div class="card">
+            <h2 class="heading-2 card__heading">
+              Why should we use template literals?
+              </h2>
+            <p class="card__text">
+              Template literals delimited with backtick(``) characters allowing for multline strings interpolation with embedded expressions and for special construct called tagged template literals.
+            </p>
+          </div>
+        </div>
+      </main>
     </div>
     <footer class="footer">
       <p class="footer__text">Copyright &copy; 2022 by Info Portal</p>

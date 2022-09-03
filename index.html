@@ -33,39 +33,7 @@
       <main class="main">
         <!-- Categories -->
         <div class="categories">
-          <ul class="categories__list">
-            <!-- 
-          <li class="categories__item">
-            <a href="#" class="categories__link">Home</a>
-          </li>
-          <li class="categories__item">
-            <a href="#" class="categories__link">Breaking News</a>
-          </li>
-          <li class="categories__item">
-            <a href="#" class="categories__link">Regular news</a>
-          </li>
-          <li class="categories__item">
-            <a href="#" class="categories__link">International news</a>
-          </li>
-          <li class="categories__item">
-            <a href="#" class="categories__link">Sports</a>
-          </li>
-          <li class="categories__item">
-            <a href="#" class="categories__link categories__link--current"
-              >Entertainment
-            </a>
-          </li>
-          <li class="categories__item">
-            <a href="#" class="categories__link">Culture</a>
-          </li>
-          <li class="categories__item">
-            <a href="#" class="categories__link">Arts</a>
-          </li>
-          <li class="categories__item">
-            <a href="#" class="categories__link">All news</a>
-          </li>
-           -->
-          </ul>
+          <ul class="categories__list"></ul>
         </div>
 
         <!-- Category Found -->
@@ -79,12 +47,11 @@
         <div class="category__heading">
           <div class="category__sort">
             <label for="category__select" class="heading-4 category__sort-by"
-              >Sort by:</label
+              >Sort by View:</label
             >
             <select id="category__select" class="category__select">
               <optgroup label="">
-                <option value="view">View</option>
-                <option value="date">Date</option>
+                <option value="view">default</option>
               </optgroup>
             </select>
           </div>
@@ -96,198 +63,11 @@
         </div>
 
         <!-- Category Cards -->
-        <div class="category__cards-container">
-          <!-- 
-        <div class="category__cards ">
-          <div class="category__img-container">
-            <img
-              src="./img/man-388104_960_720.jpg"
-              alt=""
-              class="category__img"
-            />
-          </div>
-
-          <div class="category__info">
-            <h2 class="category__card-title heading-2">
-              The best fashio influencers to follow for sartorial inspiration
-            </h2>
-
-            <p class="category__text">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Voluptatem sunt culpa, non temporibus amet veritatis est ex sed
-              similique rem!
-            </p>
-
-            <p class="category__text">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Distinctio reiciendis tenetur sapiente. Autem!
-            </p>
-
-            <div class="category__summary">
-              <div class="category__publisher">
-                <div class="category__pubisher-img-container">
-                  <img
-                    src="./img/man-388104_960_720.jpg"
-                    alt=""
-                    class="category__pubisher-img"
-                  />
-                </div>
-
-                <div class="category__text-container">
-                  <h5 class="heading-5 category__publisher-name">Janny Mike</h5>
-                  <span class="category__publish-date">Jan 10,2022</span>
-                </div>
-              </div>
-
-              <div class="category__view-container">
-                <div class="category__view-img-container">
-                  <img
-                    src="./img/carbon_view.svg"
-                    alt=""
-                    class="category__view-img"
-                  />
-                </div>
-                <p class="category__view-text">1.5M</p>
-              </div>
-
-              <div class="category__icons">
-                <img
-                  src="./img/bxs_star-half.svg"
-                  alt=""
-                  class="category__icon"
-                />
-                <img
-                  src="./img/ant-design_star-outlined.svg"
-                  alt=""
-                  class="category__icon"
-                />
-                <img
-                  src="./img/ant-design_star-outlined.svg"
-                  alt=""
-                  class="category__icon"
-                />
-                <img
-                  src="./img/ant-design_star-outlined.svg"
-                  alt=""
-                  class="category__icon"
-                />
-                <img
-                  src="./img/ant-design_star-outlined.svg"
-                  alt=""
-                  class="category__icon"
-                />
-              </div>
-
-
-              <a href="#" class="category__next">&rarr;</a>
-            </div>
-          </div>
-        </div>
-      -->
-        </div>
+        <div class="category__cards-container"></div>
         <!-- Modal Window -->
         <div class="modal close">
           <div class="modal__cross">&times</div>
-          <div class="modal__info-container">
-            <!-- <div class="category__cards mb-4">
-            <div class="category__img-container">
-              <img
-                src="./img/man-388104_960_720.jpg"
-                alt=""
-                class="category__img"
-              />
-            </div>
-
-            <div class="category__info">
-              <h2 class="category__card-title heading-2">
-                The best fashio influencers to follow for sartorial inspiration
-              </h2>
-
-              <p class="category__text">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Voluptatem sunt culpa, non temporibus amet veritatis est ex sed
-                similique rem!
-              </p>
-            </div>
-          </div>
-          <div class="category__summary">
-            <div class="category__publisher">
-              <div class="category__pubisher-img-container">
-                <img
-                  src="./img/man-388104_960_720.jpg"
-                  alt=""
-                  class="category__pubisher-img"
-                />
-              </div>
-
-              <div class="category__text-container">
-                <h5 class="heading-5 category__publisher-name">Janny Mike</h5>
-                <span class="category__publish-date">Jan 10,2022</span>
-              </div>
-            </div>
-
-            <div class="category__trending-container">
-              <div class="category__trending-img-container">
-                <img
-                  src="./img/trending-up.svg"
-                  alt=""
-                  class="category__trending-img"
-                />
-              </div>
-              <h5 class="heading-5 category__publisher-name category__trending">
-                True
-              </h5>
-            </div>
-
-            <div class="category__badge-container">
-              <div class="category__badge-img-container">
-                <img src="./img/badge.png" alt="" class="category__badge-img" />
-              </div>
-              <h5 class="heading-5 category__publisher-name category__badge">
-                Excellent
-              </h5>
-            </div>
-
-            <div class="category__view-container">
-              <div class="category__view-img-container">
-                <img
-                  src="./img/carbon_view.svg"
-                  alt=""
-                  class="category__view-img"
-                />
-              </div>
-              <p class="category__view-text">1.5M</p>
-            </div>
-
-            <div class="category__icons">
-              <img
-                src="./img/bxs_star-half.svg"
-                alt=""
-                class="category__icon"
-              />
-              <img
-                src="./img/ant-design_star-outlined.svg"
-                alt=""
-                class="category__icon"
-              />
-              <img
-                src="./img/ant-design_star-outlined.svg"
-                alt=""
-                class="category__icon"
-              />
-              <img
-                src="./img/ant-design_star-outlined.svg"
-                alt=""
-                class="category__icon"
-              />
-              <img
-                src="./img/ant-design_star-outlined.svg"
-                alt=""
-                class="category__icon"
-              />
-            </div>
-          </div> -->
-          </div>
+          <div class="modal__info-container"></div>
         </div>
         <div class="overlay close"></div>
       </main>
