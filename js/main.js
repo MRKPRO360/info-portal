@@ -78,7 +78,6 @@ const categoryDetails = async function (id, categoryName) {
 };
 
 const displayCards = (cards) => {
-  console.log(cards);
   // Hide the spinner
   const spinner = document.querySelector(".spinner");
   spinner.classList.add("d-none");
@@ -138,7 +137,7 @@ const displayCards = (cards) => {
                 />
               </div>
               <p class="category__view-text">${
-                card.total_view ? card.total_view : "No data found"
+                card.total_view ? card.total_view + " M" : "No data found"
               }</p>
             </div>
 
@@ -185,6 +184,8 @@ const displayCards = (cards) => {
 };
 const displayCardDetails = async (id) => {
   try {
+    // clearing modal container
+    modalInfoContainer.innerHTML = "";
     // open up the modal window
     modal.classList.add("open");
     modal.classList.remove("close");
@@ -196,7 +197,119 @@ const displayCardDetails = async (id) => {
     const res = await fetch(url);
     const data = await res.json();
 
-    console.log(data.data);
+    const modalInfo = data.data[0];
+
+    if (modalInfo.length === 0) throw new Error("No data available!");
+    const html = `
+     <div class="category__cards modal__card mb-4">
+            <div class="category__img-container">
+              <img
+                src="${modalInfo.image_url}"
+                alt=""
+                class="category__img"
+              />
+            </div>
+
+            <div class="category__info">
+              <h2 class="category__card-title heading-2">
+                ${modalInfo.title}
+              </h2>
+
+              <p class="category__text">
+                ${modalInfo.details.slice(0, 800)}
+              </p>
+            </div>
+          </div>
+          <div class="category__summary">
+            <div class="category__publisher">
+              <div class="category__pubisher-img-container">
+                <img
+                   src="${modalInfo.author.img}"
+                  alt=""
+                  class="category__pubisher-img"
+                />
+              </div>
+
+              <div class="category__text-container">
+                <h5 class="heading-5 category__publisher-name">${
+                  modalInfo.author.name
+                    ? modalInfo.author.name
+                    : "No author found"
+                }</h5>
+                <span class="category__publish-date">${
+                  modalInfo.author.published_date
+                }</span>
+
+              </div>
+            </div>
+
+            <div class="category__trending-container">
+              <div class="category__trending-img-container">
+                <img
+                  src="./img/trending-up.svg"
+                  alt=""
+                  class="category__trending-img"
+                />
+              </div>
+              <h5 class="heading-5 category__publisher-name category__trending">
+                ${modalInfo.others_info.is_trending}
+              </h5>
+            </div>
+
+            <div class="category__badge-container">
+              <div class="category__badge-img-container">
+                <img src="./img/badge.png" alt="" class="category__badge-img" />
+              </div>
+              <h5 class="heading-5 category__publisher-name category__badge">
+                ${modalInfo.rating.badge}
+              </h5>
+            </div>
+
+            <div class="category__view-container">
+              <div class="category__view-img-container">
+                <img
+                  src="./img/carbon_view.svg"
+                  alt=""
+                  class="category__view-img"
+                />
+              </div>
+              <p class="category__view-text">${
+                modalInfo.total_view
+                  ? modalInfo.total_view + " M"
+                  : "No data found"
+              }</p>
+            </div>
+
+            <div class="category__icons">
+              <img
+                src="./img/bxs_star-half.svg"
+                alt=""
+                class="category__icon"
+              />
+              <img
+                src="./img/ant-design_star-outlined.svg"
+                alt=""
+                class="category__icon"
+              />
+              <img
+                src="./img/ant-design_star-outlined.svg"
+                alt=""
+                class="category__icon"
+              />
+              <img
+                src="./img/ant-design_star-outlined.svg"
+                alt=""
+                class="category__icon"
+              />
+              <img
+                src="./img/ant-design_star-outlined.svg"
+                alt=""
+                class="category__icon"
+              />
+            </div>
+          </div>
+    `;
+    modalInfoContainer.insertAdjacentHTML("beforeend", html);
   } catch (err) {
     alert(`Sorry to fetch :( ${err.message} Please try again later!`);
   }
@@ -205,7 +318,6 @@ const displayCardDetails = async (id) => {
 loadCategories();
 
 // Custom Modal
-
 modalCrossBtn.addEventListener("click", function () {
   modal.classList.add("close");
   modal.classList.remove("open");
