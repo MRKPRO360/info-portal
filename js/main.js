@@ -8,7 +8,10 @@ const categoryCardsContainer = document.querySelector(
   ".category__cards-container"
 );
 
-let loading = false;
+const overlay = document.querySelector(".overlay");
+const modal = document.querySelector(".modal");
+const modalInfoContainer = document.querySelector(".modal__info-container");
+const modalCrossBtn = document.querySelector(".modal__cross");
 
 const loadCategories = async () => {
   const url = "https://openapi.programming-hero.com/api/news/categories";
@@ -62,7 +65,7 @@ const categoryDetails = async function (id, categoryName) {
     categoryFound.innerHTML = "";
     categoryFound.insertAdjacentHTML("beforeend", html);
 
-    displayCard(data.data);
+    displayCards(data.data);
 
     if (data.data.length === 0) {
       // Clear the spinner
@@ -74,7 +77,8 @@ const categoryDetails = async function (id, categoryName) {
   }
 };
 
-const displayCard = (cards) => {
+const displayCards = (cards) => {
+  console.log(cards);
   // Hide the spinner
   const spinner = document.querySelector(".spinner");
   spinner.classList.add("d-none");
@@ -169,15 +173,51 @@ const displayCard = (cards) => {
 
             <!-- 4th col -->
 
-            <a href="#" class="category__next">&rarr;</a>
+            <a href="#" class="category__next" onclick="displayCardDetails('${
+              card._id
+            }')">&rarr;</a>
           </div>
         </div>
         </div>
     `;
-    // clear the spinner
-    // categoryCardsContainer.innerHTML = "";
     categoryCardsContainer.insertAdjacentHTML("beforeend", html);
   });
 };
+const displayCardDetails = async (id) => {
+  try {
+    // open up the modal window
+    modal.classList.add("open");
+    modal.classList.remove("close");
+
+    overlay.classList.add("open");
+    overlay.classList.remove("close");
+
+    const url = `https://openapi.programming-hero.com/api/news/${id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+
+    console.log(data.data);
+  } catch (err) {
+    alert(`Sorry to fetch :( ${err.message} Please try again later!`);
+  }
+};
 
 loadCategories();
+
+// Custom Modal
+
+modalCrossBtn.addEventListener("click", function () {
+  modal.classList.add("close");
+  modal.classList.remove("open");
+
+  overlay.classList.add("close");
+  overlay.classList.remove("open");
+});
+
+overlay.addEventListener("click", function () {
+  overlay.classList.add("close");
+  overlay.classList.remove("open");
+
+  modal.classList.add("close");
+  modal.classList.remove("open");
+});
