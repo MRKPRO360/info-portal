@@ -47,10 +47,6 @@ const categoryDetails = async function (id, categoryName) {
         </svg>
   `;
 
-  categoriesLinks.forEach((link) =>
-    link.classList.remove("categories__link--current")
-  );
-
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
   try {
     const res = await fetch(url);
@@ -61,6 +57,7 @@ const categoryDetails = async function (id, categoryName) {
     ${data.data.length} items found of ${categoryName}
         </h4>
     `;
+
     // clear the previous markup
     categoryFound.innerHTML = "";
     categoryFound.insertAdjacentHTML("beforeend", html);
@@ -73,12 +70,15 @@ const categoryDetails = async function (id, categoryName) {
       throw new Error("No data available!");
     }
   } catch (err) {
-    console.log(err);
     alert(`Sorry to fetch :( ${err.message} Please try again later!`);
   }
 };
 
 const displayCard = (cards) => {
+  // Hide the spinner
+  const spinner = document.querySelector(".spinner");
+  spinner.classList.add("d-none");
+
   cards.forEach((card) => {
     const html = `
     <div class="category__cards bg-white">
@@ -175,8 +175,7 @@ const displayCard = (cards) => {
         </div>
     `;
     // clear the spinner
-    categoryCardsContainer.innerHTML = "";
-
+    // categoryCardsContainer.innerHTML = "";
     categoryCardsContainer.insertAdjacentHTML("beforeend", html);
   });
 };
