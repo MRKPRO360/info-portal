@@ -7,29 +7,34 @@
     <title>Info Portal &mdash; Your Daily News</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body class="container">
-    <!-- Header -->
-    <header class="header">
-      <div class="header__logo">
-        <h1 class="header__logo-name">
-          <span class="header__logo-bg">Info</span>Portal
-        </h1>
-      </div>
-      <div class="header__article">
-        <a href="#" class="header__link current">News</a>
-        <a href="#" class="header__link">Blog</a>
-        <div class="header__img-container">
-          <img src="./img/man-388104_960_720.jpg" alt="" class="header__img" />
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <div class="header__logo">
+          <h1 class="header__logo-name">
+            <span class="header__logo-bg">Info</span>Portal
+          </h1>
         </div>
-      </div>
-    </header>
+        <div class="header__article">
+          <a href="#" class="header__link current">News</a>
+          <a href="blog.html" class="header__link">Blog</a>
+          <div class="header__img-container">
+            <img
+              src="./img/man-388104_960_720.jpg"
+              alt=""
+              class="header__img"
+            />
+          </div>
+        </div>
+      </header>
 
-    <!-- Main -->
-    <main class="main">
-      <!-- Categories -->
-      <div class="categories">
-        <ul class="categories__list">
-          <!-- 
+      <!-- Main -->
+      <main class="main">
+        <!-- Categories -->
+        <div class="categories">
+          <ul class="categories__list">
+            <!-- 
           <li class="categories__item">
             <a href="#" class="categories__link">Home</a>
           </li>
@@ -60,39 +65,39 @@
             <a href="#" class="categories__link">All news</a>
           </li>
            -->
-        </ul>
-      </div>
-
-      <!-- Category Found -->
-      <div class="category__found">
-        <h4 class="heading-4 category__found__text">
-          Click to see about category info (:
-        </h4>
-      </div>
-
-      <!-- Category Heading -->
-      <div class="category__heading">
-        <div class="category__sort">
-          <label for="category__select" class="heading-4 category__sort-by"
-            >Sort by:</label
-          >
-          <select id="category__select" class="category__select">
-            <optgroup label="">
-              <option value="view">View</option>
-              <option value="date">Date</option>
-            </optgroup>
-          </select>
+          </ul>
         </div>
 
-        <div class="category__btns">
-          <a href="#" class="category__btn btn btn--fill">Todays Pick</a>
-          <a href="#" class="category__btn btn btn--outline">Trending</a>
+        <!-- Category Found -->
+        <div class="category__found">
+          <h4 class="heading-4 category__found__text">
+            Click to see about category info (:
+          </h4>
         </div>
-      </div>
 
-      <!-- Category Cards -->
-      <div class="category__cards-container">
-        <!-- 
+        <!-- Category Heading -->
+        <div class="category__heading">
+          <div class="category__sort">
+            <label for="category__select" class="heading-4 category__sort-by"
+              >Sort by:</label
+            >
+            <select id="category__select" class="category__select">
+              <optgroup label="">
+                <option value="view">View</option>
+                <option value="date">Date</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="category__btns">
+            <a href="#" class="category__btn btn btn--fill">Todays Pick</a>
+            <a href="#" class="category__btn btn btn--outline">Trending</a>
+          </div>
+        </div>
+
+        <!-- Category Cards -->
+        <div class="category__cards-container">
+          <!-- 
         <div class="category__cards ">
           <div class="category__img-container">
             <img
@@ -178,12 +183,13 @@
             </div>
           </div>
         </div>
-      --></div>
-      <!-- Modal Window -->
-      <div class="modal close">
-        <div class="modal__cross">&times</div>
-        <div class="modal__info-container">
-          <!-- <div class="category__cards mb-4">
+      -->
+        </div>
+        <!-- Modal Window -->
+        <div class="modal close">
+          <div class="modal__cross">&times</div>
+          <div class="modal__info-container">
+            <!-- <div class="category__cards mb-4">
             <div class="category__img-container">
               <img
                 src="./img/man-388104_960_720.jpg"
@@ -281,10 +287,15 @@
               />
             </div>
           </div> -->
+          </div>
         </div>
-      </div>
-      <div class="overlay close"></div>
-    </main>
+        <div class="overlay close"></div>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <p class="footer__text">Copyright &copy; 2022 by Info Portal</p>
+    </footer>
 
     <script src="./js/main.js"></script>
   </body>

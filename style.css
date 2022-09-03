@@ -201,6 +201,10 @@ ul {
   overflow: hidden;
 }
 
+/* Main */
+.main {
+  min-height: 47rem;
+}
 /* Categories */
 
 .categories {
@@ -297,7 +301,7 @@ ul {
 .category__card-title {
   font-weight: 700;
   color: var(--clr-dark-black);
-  font-size: 24px;
+  font-size: 2.4rem;
   margin-bottom: 1rem;
 }
 
@@ -377,20 +381,15 @@ ul {
   font-family: monospace;
 }
 
-@media only screen and (max-width: 67em) {
-  .category__cards {
-    grid-template-columns: 1fr;
-  }
+/* footer */
 
-  .category__img-container {
-    width: 24rem;
-  }
-
-  .category__summary {
-    flex-direction: column;
-    align-items: start;
-    gap: 2rem;
-  }
+.footer {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background-color: var(--clr-white);
+  padding: 3.1rem 0;
+  color: var(--clr-grey-2);
 }
 
 /* Spinner and its animation */
@@ -490,12 +489,37 @@ ul {
 /* Media Queries */
 /* 1072px and below */
 
+@media only screen and (max-width: 67em) {
+  .mb-4 {
+    margin-bottom: 0 !important;
+  }
+
+  .category__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .category__img-container {
+    width: 24rem;
+  }
+
+  .category__summary {
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem;
+  }
+}
+
 /* 675px and below */
 @media only screen and (max-width: 42.1875em) {
   html {
     font-size: 50%;
     /* 1rem = 8px */
   }
+
+  .modal__card {
+    max-height: 66rem;
+  }
+
   .category__heading {
     flex-direction: column;
     gap: 2rem;

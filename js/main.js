@@ -216,7 +216,7 @@ const displayCardDetails = async (id) => {
               </h2>
 
               <p class="category__text">
-                ${modalInfo.details.slice(0, 800)}
+                ${modalInfo.details.slice(0, 650)}
               </p>
             </div>
           </div>
