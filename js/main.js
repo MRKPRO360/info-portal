@@ -4,10 +4,11 @@
 const categoriesList = document.querySelector(".categories__list");
 const categoryFound = document.querySelector(".category__found");
 const categoriesLinks = document.querySelectorAll(".categories__link");
-const spinner = document.querySelector(".spinner");
 const categoryCardsContainer = document.querySelector(
   ".category__cards-container"
 );
+
+let loading = false;
 
 const loadCategories = async () => {
   const url = "https://openapi.programming-hero.com/api/news/categories";
@@ -32,7 +33,20 @@ const displayCategories = (categories) => {
 };
 
 const categoryDetails = async function (id, categoryName) {
-  spinner.classList.remove("d-none");
+  // setting spinner for every single fetch request
+  categoryCardsContainer.innerHTML = `
+   <svg class="spinner" viewBox="0 0 50 50">
+          <circle
+            class="path"
+            cx="25"
+            cy="25"
+            r="20"
+            fill="none"
+            stroke-width="5"
+          ></circle>
+        </svg>
+  `;
+
   categoriesLinks.forEach((link) =>
     link.classList.remove("categories__link--current")
   );
@@ -54,6 +68,8 @@ const categoryDetails = async function (id, categoryName) {
     displayCard(data.data);
 
     if (data.data.length === 0) {
+      // Clear the spinner
+      categoryCardsContainer.innerHTML = "";
       throw new Error("No data available!");
     }
   } catch (err) {
@@ -63,10 +79,6 @@ const categoryDetails = async function (id, categoryName) {
 };
 
 const displayCard = (cards) => {
-  console.log(cards);
-  // clear the spinner
-  categoryCardsContainer.innerHTML = "";
-
   cards.forEach((card) => {
     const html = `
     <div class="category__cards bg-white">
@@ -162,6 +174,8 @@ const displayCard = (cards) => {
         </div>
         </div>
     `;
+    // clear the spinner
+    categoryCardsContainer.innerHTML = "";
 
     categoryCardsContainer.insertAdjacentHTML("beforeend", html);
   });
